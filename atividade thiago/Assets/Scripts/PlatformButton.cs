@@ -6,10 +6,10 @@ public class PlatformButton : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Verifica se quem entrou no botão é o jogador
+        // verifica se quem entrou no botão é o player
         if (other.CompareTag("Player"))
         {
-            // Dispara o evento com o ID da porta a ser aberta
+            // dispara o evento com o ID da porta p ser aberta
             DoorEventChannel.RaiseDoorOpen(doorIDToTrigger);
         }
     }

@@ -2,13 +2,13 @@ using System;
 
 public static class DoorEventChannel
 {
-    // Evento que será publicado quando um botão for ativado
+    // evento que vai ser publicado quando o botão for ativado
     public static Action<string> OnDoorOpenRequested;
 
-    // Método para publicar o evento
+    // método que publica o evento
     public static void RaiseDoorOpen(string doorID)
     {
-        // Se tiver algum inscrito no evento, ele vai ser chamado aqui
+        // se tiver algum inscrito no evento, chama aqui
         OnDoorOpenRequested?.Invoke(doorID);
     }
 }

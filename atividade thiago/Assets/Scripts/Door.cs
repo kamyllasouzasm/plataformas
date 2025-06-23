@@ -16,20 +16,20 @@ public class Door : MonoBehaviour
 
     void OnEnable()
     {
-        // se inscreve no evento quando o objeto for ativado
+        // se inscreve no evento quando o objeto conseguir ser ativado
         DoorEventChannel.OnDoorOpenRequested += HandleDoorOpen;
     }
 
     void OnDisable()
     {
-        // Remove a inscrição para evitar vazamentos de memória
+        // cancela a inscrição para evitar vazamentos de memória
         DoorEventChannel.OnDoorOpenRequested -= HandleDoorOpen;
     }
 
-    // Método chamado quando o evento for disparado
+    // Método que é chamado quando o evento é disparado
     private void HandleDoorOpen(string triggeredID)
     {
-        // Só reage se o ID for correspondente
+        // Só reage se o ID corresponder
         if (triggeredID == doorID)
         {
             OpenDoor();
@@ -38,6 +38,7 @@ public class Door : MonoBehaviour
 
     private void OpenDoor()
     {
-        col.enabled = false; // Porta deixa de bloquear
+        col.enabled = false; // Porta abre
+        sr.color = Color.green; // a porta fica verde quando aberta
     }
 }
